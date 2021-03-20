@@ -11,12 +11,16 @@ public class Suggestion {
         this.name = name;
         this.description = description;
         this.descriptionLength = description.length();
+        this.upvoteCount = 0;
+        this.downvoteCount = 0;
     }
 
     public Suggestion(String name, String description, int descriptionLength) {
         this.name = name;
         this.description = description;
         this.descriptionLength = descriptionLength;
+        this.upvoteCount = 0;
+        this.downvoteCount = 0;
     }
 
     public Suggestion(String name, String description, int descriptionLength, int upvoteCount, int downvoteCount) {

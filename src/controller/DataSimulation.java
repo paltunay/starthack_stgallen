@@ -3,8 +3,7 @@ package controller;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Random;
-
-import model.*;
+import model.Suggestion;
 
 public class DataSimulation {
 	
@@ -12,7 +11,7 @@ public class DataSimulation {
 	final private int voteCount;
 	final private int maxNameLength;
 	final private int maxDescLength;
-	public Map<String, Suggestion> suggestions;
+	Map<String, Suggestion> suggestions;
 	
 
 	public DataSimulation(int suggestionCount, int voteCount, int maxNameLength, 
@@ -45,11 +44,11 @@ public class DataSimulation {
 					break;
 			}
 			// name must be unique!
-			
+
 			if (suggestions.containsKey(name)) { // begin again
 				continue;
 			}
-			
+
 			// generate description
 			i = 0;
 			String desc = "";
@@ -62,6 +61,24 @@ public class DataSimulation {
 			suggestions.put(name, new Suggestion(name, desc));
 			++count;
 		}
+
 		return suggestions;
+
+	}
+
+	private void generateVotes(HashMap<String, Suggestion> suggestions) {
+		Random rnd = new Random();
+		int remainingVotes = voteCount;
+
+		for (Map.Entry<String, Suggestion> entry : suggestions.entrySet()) {
+			int votes = rnd.nextInt(voteCount);
+			remainingVotes -= votes;
+			int upvotes = rnd.nextInt(votes);
+			int downvotes = votes - upvotes;
+
+			Suggestion suggestion = entry.getValue();
+			suggestion.setUpvoteCount(upvotes);
+			suggestion.setDownvoteCount(downvotes);
+		}
 	}
 }
