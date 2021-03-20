@@ -31,11 +31,12 @@ public class UserInterface {
 
     }
 
-    private static JPanel suggestionPanel(String name, String descriptionText, int upvotes, int downvotes){
+    private static JPanel suggestionPanel(String name, String descriptionText, int upvotes, int downvotes, String issuer){
         //create main components of suggestionPanel
         JPanel panel = new JPanel();
         JLabel text = new JLabel(name);
         JLabel description = new JLabel(descriptionText);
+        JLabel issuerName = new JLabel(issuer);
         JButton upvote = new JButton("+" +upvotes);
         JButton downvote = new JButton("-" +downvotes);
 
@@ -44,6 +45,7 @@ public class UserInterface {
         panel.add(upvote);
         panel.add(downvote);
         panel.add(description);
+        panel.add(issuerName);
 
         return panel;
     }
@@ -57,7 +59,7 @@ public class UserInterface {
 
         //add each list element to the JPanel
         for (Suggestion suggestion : lst) {
-            panel.add(suggestionPanel(suggestion.getName(), suggestion.getDescription(), suggestion.getUpvoteCount(), suggestion.getDownvoteCount()));
+            panel.add(suggestionPanel(suggestion.getName(), suggestion.getDescription(), suggestion.getUpvoteCount(), suggestion.getDownvoteCount(), suggestion.getIssuer()));
         }
     }
 }
