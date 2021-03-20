@@ -1,6 +1,6 @@
 package model;
 
-public class Suggestion implements Comparable<Suggestion> {
+public class Suggestion implements Comparable<Suggestion>, java.io.Serializable {
     private int upvoteCount;
     private int downvoteCount;
     private int descriptionLength;

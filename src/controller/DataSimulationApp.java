@@ -2,6 +2,8 @@ package controller;
 
 import model.*;
 
+import java.util.Map;
+
 public class DataSimulationApp {
 
 	public static void main(String[] args) {

@@ -53,7 +53,19 @@ public class Main {
         JLabel text = new JLabel(name);
         JLabel description = new JLabel(descriptionText);
         JButton upvote = new JButton("+" +upvotes);
+        upvote.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
         JButton downvote = new JButton("-" +downvotes);
+        downvote.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                downvote.setText("changed");
+            }
+        });
         panel.add(text);
         panel.add(upvote);
         panel.add(downvote);
