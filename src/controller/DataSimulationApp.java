@@ -1,5 +1,7 @@
 package controller;
 
+import model.*;
+
 public class DataSimulationApp {
 
 	public static void main(String[] args) {
@@ -14,6 +16,17 @@ public class DataSimulationApp {
 			System.out.println(sim.suggestions.get(name).getName());
 			System.out.println();
 			
+		}
+		Suggestion sug1 = new Suggestion("sug1", "desc1", 5, 10, 4);
+		Suggestion sug2 = new Suggestion("sug2", "desc2", 5, 15, 1);
+		if (sug1.compareTo(sug2) > 0) {
+			System.out.println("sug1 is more popular than sug2");
+		}
+		else if (sug1.compareTo(sug2) < 0) {
+			System.out.println("sug1 is less popular than sug2");
+		}
+		else {
+			System.out.println("They are equally popular!");
 		}
 
 	}
