@@ -4,6 +4,7 @@ import model.*;
 import controller.*;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class UserInterface {
         //create main components of suggestionPanel
         JPanel panel = new JPanel();
         JLabel text = new JLabel(name);
-        JLabel description = new JLabel(descriptionText);
+        JTextArea description = new JTextArea(descriptionText);
         JLabel issuerName = new JLabel(issuer);
         JButton upvote = new JButton("+" +upvotes);
         JButton downvote = new JButton("-" +downvotes);
@@ -64,6 +65,19 @@ public class UserInterface {
                 downvote.setText("-" +newDownvotes);
             }
         });
+
+        //description settings
+        description.setEditable(false);
+        description.setLineWrap(true);
+        description.setWrapStyleWord(true);
+        description.setOpaque(false);
+
+        //button settings
+        upvote.setFont(new Font("Arial", Font.PLAIN, 40));
+        downvote.setFont(new Font("Arial", Font.PLAIN, 40));
+
+        //panel layout settings
+        panel.setLayout(new GridLayout());
 
         //add components to the panel
         panel.add(text);
