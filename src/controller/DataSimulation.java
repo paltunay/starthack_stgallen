@@ -38,7 +38,7 @@ public class DataSimulation {
 			String name = "";
 			int i = 0;
 			while (i < maxNameLength) { // generate name
-				name += (char) rnd.nextInt(asciiRange) + 32; // start at ASCII 32
+				name += Character.toString(rnd.nextInt(asciiRange) + 32); // start at ASCII 32
 				++i;
 				if (rnd.nextInt(20) == 1) // 5% probability to stop name generation here
 					break;
@@ -53,7 +53,7 @@ public class DataSimulation {
 			i = 0;
 			String desc = "";
 			while (i < maxDescLength) {
-				desc += (char) rnd.nextInt(asciiRange) + 32;
+				desc += Character.toString(rnd.nextInt(asciiRange) + 32);
 				++i;
 				if (rnd.nextInt(40) == 1) // 2.5% probability to stop name generation here
 					break; // description is ~2x as long as name
