@@ -58,7 +58,18 @@ public class DataSimulation {
 				if (rnd.nextInt(40) == 1) // 2.5% probability to stop name generation here
 					break; // description is ~2x as long as name
 			}
-			suggestions.put(name, new Suggestion(name, desc));
+			
+			//generate issuer name
+			i = 0;
+			String issuerName = "";
+			while (i < 15) {
+				issuerName += Character.toString(rnd.nextInt(asciiRange) + 32);
+				++i;
+				if (rnd.nextInt(10) == 1) // 10% probability to stop name generation here
+					break;
+			}
+			
+			suggestions.put(name, new Suggestion(name, desc, issuerName));
 			++count;
 		}
 

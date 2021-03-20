@@ -10,6 +10,7 @@ public class DataSimulationApp {
 		for (String name : sim.getSuggestions().keySet()) {
 			System.out.println(name);
 			System.out.println(sim.getSuggestions().get(name).getDescription());
+			System.out.println(sim.getSuggestions().get(name).getIssuer());
 			System.out.println(sim.getSuggestions().get(name).getDownvoteCount());
 			System.out.println(sim.getSuggestions().get(name).getUpvoteCount());
 			System.out.println(sim.getSuggestions().get(name).getVotes());
@@ -17,8 +18,8 @@ public class DataSimulationApp {
 			System.out.println();
 			
 		}
-		Suggestion sug1 = new Suggestion("sug1", "desc1", 5, 10, 4);
-		Suggestion sug2 = new Suggestion("sug2", "desc2", 5, 15, 1);
+		Suggestion sug1 = new Suggestion("sug1", "desc1", 5, 10, 4, "Hans-Ruedi Müller");
+		Suggestion sug2 = new Suggestion("sug2", "desc2", 5, 15, 1, "Günther Jauch");
 		if (sug1.compareTo(sug2) > 0) {
 			System.out.println("sug1 is more popular than sug2");
 		}
