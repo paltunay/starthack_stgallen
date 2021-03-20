@@ -77,4 +77,51 @@ public class Trash {
             panel.add(suggestionPanel(suggestion.getName(), suggestion.getDescription(), suggestion.getUpvoteCount(), suggestion.getDownvoteCount()));
         }
     }
+    
+    
+    // DataSimulation_trash follows
+    
+    /*final int asciiRange = 123; // define ASCII range
+	int count = 0;
+	Random rnd = new Random();
+	while (count < suggestionCount) {
+		// generate name
+		String name = "";
+		int i = 0;
+		while (i < maxNameLength) { // generate name
+			name += Character.toString(rnd.nextInt(asciiRange) + 32); // start at ASCII 32
+			++i;
+			if (rnd.nextInt(20) == 1) // 5% probability to stop name generation here
+				break;
+		}
+		// name must be unique!
+
+		if (suggestions.containsKey(name)) { // begin again
+			continue;
+		}
+
+		// generate description
+		i = 0;
+		String desc = "";
+		while (i < maxDescLength) {
+			desc += Character.toString(rnd.nextInt(asciiRange) + 32);
+			++i;
+			if (rnd.nextInt(40) == 1) // 2.5% probability to stop name generation here
+				break; // description is ~2x as long as name
+		}
+		
+		//generate issuer name
+		i = 0;
+		String issuerName = "";
+		while (i < 15) {
+			issuerName += Character.toString(rnd.nextInt(asciiRange) + 32);
+			++i;
+			if (rnd.nextInt(10) == 1) // 10% probability to stop name generation here
+				break;
+		}
+		
+		suggestions.put(name, new Suggestion(name, desc, issuerName));
+		++count;
+	}*/
+    
 }

@@ -16,18 +16,18 @@ public class DataSimulationApp {
 
 		view.UserInterface.setupWindow();
 
-		/*
-		for (String name : sim.getSuggestions().keySet()) {
-			System.out.println(name);
-			System.out.println(sim.getSuggestions().get(name).getDescription());
-			System.out.println(sim.getSuggestions().get(name).getIssuer());
-			System.out.println(sim.getSuggestions().get(name).getDownvoteCount());
-			System.out.println(sim.getSuggestions().get(name).getUpvoteCount());
-			System.out.println(sim.getSuggestions().get(name).getVotes());
-			System.out.println(sim.getSuggestions().get(name).getName());
-			System.out.println();
-			
-		}*/
+		
+//		for (String name : sim.getSuggestions().keySet()) {
+//			System.out.println(name);
+//			System.out.println(sim.getSuggestions().get(name).getDescription());
+//			System.out.println(sim.getSuggestions().get(name).getIssuer());
+//			System.out.println(sim.getSuggestions().get(name).getDownvoteCount());
+//			System.out.println(sim.getSuggestions().get(name).getUpvoteCount());
+//			System.out.println(sim.getSuggestions().get(name).getVotes());
+//			System.out.println(sim.getSuggestions().get(name).getName());
+//			System.out.println();
+//			
+//		}
 
 
 

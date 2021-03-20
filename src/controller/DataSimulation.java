@@ -3,6 +3,9 @@ package controller;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Random;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 import model.Suggestion;
 
 public class DataSimulation {
@@ -30,47 +33,20 @@ public class DataSimulation {
 	
 	private Map generateSuggestions() {
 		Map<String, Suggestion> suggestions = new HashMap<String, Suggestion>();
-		final int asciiRange = 123; // define ASCII range
-		int count = 0;
-		Random rnd = new Random();
-		while (count < suggestionCount) {
-			// generate name
-			String name = "";
-			int i = 0;
-			while (i < maxNameLength) { // generate name
-				name += Character.toString(rnd.nextInt(asciiRange) + 32); // start at ASCII 32
-				++i;
-				if (rnd.nextInt(20) == 1) // 5% probability to stop name generation here
-					break;
+		
+		File input = new File("suggestionsInput.txt");
+		try {
+			Scanner fileScanner = new Scanner(input);
+			int count = 0;
+			while (fileScanner.hasNextLine() && count < suggestionCount) {
+				String issuerName = fileScanner.nextLine();
+				String name = fileScanner.nextLine();
+				String desc = fileScanner.nextLine();
+				suggestions.put(name, new Suggestion(name, desc, issuerName));
+				++count;
 			}
-			// name must be unique!
-
-			if (suggestions.containsKey(name)) { // begin again
-				continue;
-			}
-
-			// generate description
-			i = 0;
-			String desc = "";
-			while (i < maxDescLength) {
-				desc += Character.toString(rnd.nextInt(asciiRange) + 32);
-				++i;
-				if (rnd.nextInt(40) == 1) // 2.5% probability to stop name generation here
-					break; // description is ~2x as long as name
-			}
-			
-			//generate issuer name
-			i = 0;
-			String issuerName = "";
-			while (i < 15) {
-				issuerName += Character.toString(rnd.nextInt(asciiRange) + 32);
-				++i;
-				if (rnd.nextInt(10) == 1) // 10% probability to stop name generation here
-					break;
-			}
-			
-			suggestions.put(name, new Suggestion(name, desc, issuerName));
-			++count;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
 		}
 
 		generateVotes(suggestions);
