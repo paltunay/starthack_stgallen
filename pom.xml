@@ -5,6 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <build>
     <plugins>
+
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
@@ -12,6 +13,7 @@
           <release>12</release>
         </configuration>
       </plugin>
+
     </plugins>
   </build>
   <dependencies>
@@ -22,5 +24,6 @@
 	    <version>4.0.0-RC1</version>
 	    <scope>provided</scope>
 	</dependency>
+
   </dependencies>
 </project>
