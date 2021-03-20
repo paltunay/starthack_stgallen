@@ -38,31 +38,79 @@ public class UserInterface {
         JLabel text = new JLabel(name);
         JTextArea description = new JTextArea(descriptionText);
         JLabel issuerName = new JLabel(issuer);
-        JButton upvote = new JButton("+" +upvotes);
-        JButton downvote = new JButton("-" +downvotes);
+        JToggleButton upvote = new JToggleButton("+" +upvotes);
+        JToggleButton downvote = new JToggleButton("-" +downvotes);
+
+        Boolean upvoted = false;
+        Boolean downvoted = false;
 
         //set up button functionality
         upvote.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Map<String, Suggestion> map = FileHandler.readData();
-                int newUpvotes = upvotes+1;
-                map.get(name).setUpvoteCount(newUpvotes);
-                FileHandler.saveData(map);
+                if(!upvote.isSelected()) {
+                    Map<String, Suggestion> map = FileHandler.readData();
+                    int newUpvotes = map.get(name).getUpvoteCount()-1;
+                    map.get(name).setUpvoteCount(newUpvotes);
+                    FileHandler.saveData(map);
 
-                upvote.setText("+" +newUpvotes);
+                    upvote.setText("+" +newUpvotes);
+                }
+
+                else {
+                    Map<String, Suggestion> map = FileHandler.readData();
+                    int newUpvotes = upvotes+1;
+                    map.get(name).setUpvoteCount(newUpvotes);
+                    FileHandler.saveData(map);
+
+                    if(downvote.isSelected()) {
+                        downvote.setSelected(false);
+
+                        Map<String, Suggestion> map2 = FileHandler.readData();
+                        int newDownvotes = map2.get(name).getDownvoteCount()-1;
+                        map2.get(name).setDownvoteCount(newDownvotes);
+                        FileHandler.saveData(map2);
+
+                        downvote.setText("-" +newDownvotes);
+                    }
+
+                    upvote.setText("+" +newUpvotes);
+                }
+
             }
         });
 
         downvote.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Map<String, Suggestion> map = FileHandler.readData();
-                int newDownvotes = downvotes+1;
-                map.get(name).setDownvoteCount(newDownvotes);
-                FileHandler.saveData(map);
+                if(!downvote.isSelected()) {
+                    Map<String, Suggestion> map = FileHandler.readData();
+                    int newDownvotes = map.get(name).getDownvoteCount()-1;
+                    map.get(name).setDownvoteCount(newDownvotes);
+                    FileHandler.saveData(map);
 
-                downvote.setText("-" +newDownvotes);
+                    downvote.setText("-" +newDownvotes);
+                }
+
+                else {
+                    Map<String, Suggestion> map = FileHandler.readData();
+                    int newDownvotes = downvotes+1;
+                    map.get(name).setDownvoteCount(newDownvotes);
+                    FileHandler.saveData(map);
+
+                    if (upvote.isSelected()) {
+                        upvote.setSelected(false);
+
+                        Map<String, Suggestion> map2 = FileHandler.readData();
+                        int newUpvotes = map2.get(name).getUpvoteCount()-1;
+                        map2.get(name).setUpvoteCount(newUpvotes);
+                        FileHandler.saveData(map2);
+
+                        upvote.setText("+" +newUpvotes);
+                    }
+
+                    downvote.setText("-" +newDownvotes);
+                }
             }
         });
 
