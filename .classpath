@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+<<<<<<< HEAD
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
@@ -9,3 +10,10 @@
 	<classpathentry kind="lib" path="/Users/lukas/Downloads/unirest-java-4.0.0-RC1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
+=======
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="/starthack_stgallen/src"/>
+	<classpathentry exported="true" kind="lib" path="/starthack_stgallen/unirest-java-4.0.0-RC1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
+>>>>>>> branch 'master' of https://github.com/paltunay/starthack_stgallen.git

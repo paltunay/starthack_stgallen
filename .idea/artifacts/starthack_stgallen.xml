@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="starthack_stgallen">
+    <output-path>$PROJECT_DIR$/out/artifacts/starthack_stgallen</output-path>
+    <root id="archive" name="starthack_stgallen.jar">
+      <element id="archive" name="starthack_stgallen.jar">
+        <element id="module-output" name="starthack_stgallen" />
+      </element>
+    </root>
+  </artifact>
+</component>

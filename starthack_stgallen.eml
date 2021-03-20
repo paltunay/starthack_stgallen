@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inherit-compiler-output="true" jdk="liberica-15" jdk_type="JavaSDK">
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<lib name="unirest-java-4.0.0-RC1.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/unirest-java-4.0.0-RC1.jar!/"/>
+	</lib>
+</component>
