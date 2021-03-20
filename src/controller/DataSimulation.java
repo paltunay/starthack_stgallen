@@ -86,6 +86,9 @@ public class DataSimulation {
 
 		for (Map.Entry<String, Suggestion> entry : suggestions.entrySet()) {
 			Suggestion suggestion = entry.getValue();
+			if (remainingVotes <= 0) {
+				return;
+			}
 			if (i+1 == suggestionCount) {
 				int upvotes = rnd.nextInt(remainingVotes)+1;
 				int downvotes = remainingVotes - upvotes;
