@@ -15,9 +15,13 @@ public class API_Handler {
 		.asString();
 		System.out.println(response.getBody());
 		System.out.println();
-		HttpResponse response2 = Unirest.get("?dataset=budget-2021-stadt-stgallen-funktionale-gliederung-english-data&q=&sort=zeilennummer&refine.aufwand_ertrag=Expense&")
-		.asString();
-		
-		System.out.println(response2.getBody());
+		String text = Unirest.get("https://daten.stadt.sg.ch/api/records/1.0/search/?dataset=budget-2021-stadt-stgallen-funktionale-gliederung-english-data&q=&sort=zeilennummer&facet=kontotitel&refine.ebene_1=4+health&refine.aufwand_ertrag=Expense&refine.ebene_2=45+Outpatient+nursing%2C+obstetrics")
+		.asString().getBody();
+		String searchWord = "budget_2021";
+		for (int fromIndex = 0; fromIndex < text.length(); ++fromIndex) {
+			if (text.toLowerCase().indexOf(searchWord.toLowerCase(), fromIndex) != -1) { // index exists -> word exists
+				fromIndex += searchWord.length() - 1; // jump to index after word
+			}
+		}
 	}
 }
