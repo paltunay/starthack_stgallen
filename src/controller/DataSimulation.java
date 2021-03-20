@@ -62,23 +62,35 @@ public class DataSimulation {
 			++count;
 		}
 
+		generateVotes(suggestions);
+
 		return suggestions;
 
 	}
 
-	private void generateVotes(HashMap<String, Suggestion> suggestions) {
+	private void generateVotes(Map<String, Suggestion> suggestions) {
 		Random rnd = new Random();
 		int remainingVotes = voteCount;
+		int i = 0;
 
 		for (Map.Entry<String, Suggestion> entry : suggestions.entrySet()) {
-			int votes = rnd.nextInt(voteCount);
+			Suggestion suggestion = entry.getValue();
+			if (i+1 == suggestionCount) {
+				int upvotes = rnd.nextInt(remainingVotes)+1;
+				int downvotes = remainingVotes - upvotes;
+				suggestion.setDownvoteCount(downvotes);
+				return;
+			}
+
+			int votes = rnd.nextInt(remainingVotes)+1;
 			remainingVotes -= votes;
 			int upvotes = rnd.nextInt(votes);
 			int downvotes = votes - upvotes;
 
-			Suggestion suggestion = entry.getValue();
 			suggestion.setUpvoteCount(upvotes);
 			suggestion.setDownvoteCount(downvotes);
+
+			i++;
 		}
 	}
 }
