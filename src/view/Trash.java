@@ -1,17 +1,14 @@
 package view;
 
+import controller.DataSimulation;
+import model.Suggestion;
+
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
 import java.util.Map;
 
-import model.*;
-import controller.*;
-
-public class Main {
-
+public class Trash {
     public static void main(String[] args) {
         //run data simulation
         DataSimulation simulation = new DataSimulation(5, 100, 10, 20);
