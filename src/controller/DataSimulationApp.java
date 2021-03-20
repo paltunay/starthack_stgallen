@@ -2,6 +2,9 @@ package controller;
 
 import model.*;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 public class DataSimulationApp {
@@ -30,6 +33,19 @@ public class DataSimulationApp {
 		}
 		else {
 			System.out.println("They are equally popular!");
+		}
+
+		Map<String, Suggestion> map = sim.getSuggestions();
+		List<Suggestion> lst = new ArrayList<Suggestion>(map.values());
+		Collections.sort(lst);
+		for (Suggestion suggestion : lst) {
+			System.out.println(suggestion.getDescription());
+			System.out.println(suggestion.getIssuer());
+			System.out.println(suggestion.getDownvoteCount());
+			System.out.println(suggestion.getUpvoteCount());
+			System.out.println(suggestion.getVotes());
+			System.out.println(suggestion.getName());
+			System.out.println();
 		}
 
 	}

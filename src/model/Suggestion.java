@@ -88,8 +88,7 @@ public class Suggestion implements Comparable<Suggestion>, java.io.Serializable 
     
     // returns positive number if and only if this suggestion is more popular than other suggestion
     public int compareTo(Suggestion other) {
-    	return (this.getUpvoteCount() - this.getDownvoteCount()) - 
-    			(other.getUpvoteCount() - other.getDownvoteCount());
+    	return ((other.getUpvoteCount() - other.getDownvoteCount()) - (this.getUpvoteCount() - this.getDownvoteCount()));
     }
 
 
