@@ -11,7 +11,7 @@ public class DataSimulation {
 	final private int voteCount;
 	final private int maxNameLength;
 	final private int maxDescLength;
-	Map<String, Suggestion> suggestions;
+	private Map<String, Suggestion> suggestions;
 	
 
 	public DataSimulation(int suggestionCount, int voteCount, int maxNameLength, 
@@ -92,5 +92,9 @@ public class DataSimulation {
 
 			i++;
 		}
+	}
+
+	public Map<String, Suggestion> getSuggestions() {
+		return suggestions;
 	}
 }
