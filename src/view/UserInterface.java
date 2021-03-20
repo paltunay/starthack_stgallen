@@ -40,6 +40,31 @@ public class UserInterface {
         JButton upvote = new JButton("+" +upvotes);
         JButton downvote = new JButton("-" +downvotes);
 
+        //set up button functionality
+        upvote.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Map<String, Suggestion> map = FileHandler.readData();
+                int newUpvotes = upvotes+1;
+                map.get(name).setUpvoteCount(newUpvotes);
+                FileHandler.saveData(map);
+
+                upvote.setText("+" +newUpvotes);
+            }
+        });
+
+        downvote.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Map<String, Suggestion> map = FileHandler.readData();
+                int newDownvotes = downvotes+1;
+                map.get(name).setDownvoteCount(newDownvotes);
+                FileHandler.saveData(map);
+
+                downvote.setText("-" +newDownvotes);
+            }
+        });
+
         //add components to the panel
         panel.add(text);
         panel.add(upvote);
