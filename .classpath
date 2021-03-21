@@ -7,19 +7,19 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
+	<classpathentry exported="true" kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+=======
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jfx">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+>>>>>>> branch 'master' of https://github.com/paltunay/starthack_stgallen.git
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/javafx-base-15.0.1.jar"/>
-	<classpathentry kind="lib" path="lib/javafx-base-15.0.1-javadoc.jar"/>
-	<classpathentry kind="lib" path="lib/javafx-base-15.0.1-mac.jar"/>
-	<classpathentry kind="lib" path="lib/javafx-base-15.0.1-sources.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
