@@ -1,0 +1,22 @@
+<component name="libraryTable">
+  <library name="org.openjfx:javafx-controls:12-ea+6" type="repository">
+    <properties maven-id="org.openjfx:javafx-controls:12-ea+6" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../starthafffck_stgallen/lib/javafx-controls-12-ea+6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../starthafffck_stgallen/lib/javafx-controls-12-ea+6-mac.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../starthafffck_stgallen/lib/javafx-graphics-12-ea+6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../starthafffck_stgallen/lib/javafx-graphics-12-ea+6-mac.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../starthafffck_stgallen/lib/javafx-base-12-ea+6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../starthafffck_stgallen/lib/javafx-base-12-ea+6-mac.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../starthafffck_stgallen/lib/javafx-controls-12-ea+6-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../starthafffck_stgallen/lib/javafx-controls-12-ea+6-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../starthafffck_stgallen/lib/javafx-graphics-12-ea+6-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../starthafffck_stgallen/lib/javafx-graphics-12-ea+6-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../starthafffck_stgallen/lib/javafx-base-12-ea+6-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../starthafffck_stgallen/lib/javafx-base-12-ea+6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>
