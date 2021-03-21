@@ -20,7 +20,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         PieChart pieChart = new PieChart();
-        File file = new File("chartdata");
+        File file = new File("layer1");
         BufferedReader reader = new BufferedReader(new FileReader(file));
         String line;
 
@@ -28,7 +28,6 @@ public class Main extends Application {
         while((line = reader.readLine()) != null) {
             String[] arr = line.split(";");
             pieChart.getData().add(new PieChart.Data(arr[0], Integer.valueOf(arr[1])));
-
         }
 
         pieChart.setPrefSize(1200, 600);
@@ -63,7 +62,7 @@ public class Main extends Application {
                     pieChart2.setLabelsVisible(false);
                     pieChart2.setMinHeight(500);
 
-                    File file = new File("layer1");
+                    File file = new File("layer2");
                     BufferedReader reader = null;
                     try {
                         reader = new BufferedReader(new FileReader(file));
@@ -107,7 +106,7 @@ public class Main extends Application {
                                 pieChart3.setLabelsVisible(false);
                                 pieChart3.setMinHeight(500);
 
-                                File file = new File("layer2");
+                                File file = new File("chartdata");
                                 BufferedReader reader = null;
                                 try {
                                     reader = new BufferedReader(new FileReader(file));
