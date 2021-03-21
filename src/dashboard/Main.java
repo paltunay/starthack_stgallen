@@ -88,6 +88,15 @@ public class Main extends Application {
                     root.getChildren().removeAll(pieChart);
                     root.getChildren().addAll(pieChart2);
                     for (final PieChart.Data data : pieChart2.getData()) {
+                        data.getNode().addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+                            @Override
+                            public void handle(MouseEvent event) {
+                                caption.setTranslateX(event.getSceneX());
+                                caption.setTranslateY(event.getSceneY());
+
+                                caption.setText(String.valueOf(data.getPieValue()));
+                            }
+                        });
                         data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
                             @Override
                             public void handle(MouseEvent e) {
@@ -120,6 +129,17 @@ public class Main extends Application {
                                 root.getChildren().removeAll(pieChart2);
                                 root.getChildren().addAll(pieChart3);
 
+                                for (final PieChart.Data data : pieChart2.getData()) {
+                                    data.getNode().addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+                                        @Override
+                                        public void handle(MouseEvent event) {
+                                            caption.setTranslateX(event.getSceneX());
+                                            caption.setTranslateY(event.getSceneY());
+
+                                            caption.setText(String.valueOf(data.getPieValue()));
+                                        }
+                                    });
+                                }
                             }
                         });
                     }

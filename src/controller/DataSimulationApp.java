@@ -15,6 +15,7 @@ public class DataSimulationApp {
 		FileHandler.saveData(sim.getSuggestions());
 
 		view.UserInterface.setupWindow();
+		dashboard.Main.dashboardSetup(null);
 	}
 
 }
