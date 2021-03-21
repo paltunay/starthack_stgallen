@@ -49,7 +49,7 @@ public class Main extends Application {
                     caption.setTranslateX(event.getSceneX());
                     caption.setTranslateY(event.getSceneY());
 
-                    caption.setText(String.valueOf(data.getPieValue()));
+                    caption.setText("" +(int) data.getPieValue());
                 }
             });
             data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
@@ -84,16 +84,20 @@ public class Main extends Application {
 
 
 
-                    root.getChildren().removeAll(pieChart);
-                    root.getChildren().addAll(pieChart2);
+                    root.getChildren().removeAll(pieChart, caption);
+                    final Label caption2 = new Label("");
+                    caption2.setTextFill(Color.WHITE);
+                    caption2.setStyle("-fx-font: 24 arial;");
+                    root.getChildren().addAll(pieChart2,caption2);
                     for (final PieChart.Data data : pieChart2.getData()) {
                         data.getNode().addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
                             @Override
                             public void handle(MouseEvent event) {
-                                caption.setTranslateX(event.getSceneX());
-                                caption.setTranslateY(event.getSceneY());
 
-                                caption.setText(String.valueOf(data.getPieValue()));
+                                caption2.setTranslateX(event.getSceneX());
+                                caption2.setTranslateY(event.getSceneY());
+
+                                caption2.setText("" +(int) data.getPieValue());
                             }
                         });
                         data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
@@ -125,20 +129,26 @@ public class Main extends Application {
                                     pieChart3.getData().add(new PieChart.Data(arr[0], Integer.valueOf(arr[1])));
                                 }
 
-                                root.getChildren().removeAll(pieChart2);
-                                root.getChildren().addAll(pieChart3);
+                                final Label caption3 = new Label("");
+                                caption3.setTextFill(Color.WHITE);
+                                caption3.setStyle("-fx-font: 24 arial;");
 
-                                for (final PieChart.Data data : pieChart2.getData()) {
+                                for (final PieChart.Data data : pieChart3.getData()) {
                                     data.getNode().addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
                                         @Override
                                         public void handle(MouseEvent event) {
-                                            caption.setTranslateX(event.getSceneX());
-                                            caption.setTranslateY(event.getSceneY());
+                                            caption3.setTranslateX(event.getSceneX());
+                                            caption3.setTranslateY(event.getSceneY());
 
-                                            caption.setText(String.valueOf(data.getPieValue()));
+                                            caption3.setText("" +(int) data.getPieValue());
                                         }
                                     });
                                 }
+
+                                root.getChildren().removeAll(pieChart2, caption2);
+                                root.getChildren().addAll(pieChart3,caption3);
+
+
                             }
                         });
                     }
