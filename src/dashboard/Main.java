@@ -11,25 +11,44 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.Scanner;
+
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
         PieChart pieChart = new PieChart();
+/*
+        PieChart.Data slice1 = new PieChart.Data("Advice center for parents of small children", 33.000);
+        PieChart.Data slice2 = new PieChart.Data("Advice for mothers", 1000000);
+        PieChart.Data slice3 = new PieChart.Data("Aids aid St. Gallen-Appenzell", 10000);
+        PieChart.Data slice4 = new PieChart.Data("Child and Adolescent Psychiatric Services Foundation St. Gallen", 85000);
+        PieChart.Data slice5 = new PieChart.Data("Help and care at home", 2550000);
+        PieChart.Data slice6 = new PieChart.Data("St. Gallen Hospice Service", 35000);
+        PieChart.Data slice7 = new PieChart.Data("Community palliative care", 59000);
+*/
+        File file = new File("chartdata");
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        String line;
 
-        PieChart.Data slice1 = new PieChart.Data("USA", 17947195);
-        PieChart.Data slice2 = new PieChart.Data("EU", 11540278);
-        PieChart.Data slice3 = new PieChart.Data("China", 10982829);
-        PieChart.Data slice4 = new PieChart.Data("Japan", 4116242);
-        PieChart.Data slice5 = new PieChart.Data("Others", 28584442);
 
+        while((line = reader.readLine()) != null) {
+            String[] arr = line.split(";");
+            pieChart.getData().add(new PieChart.Data(arr[0], Integer.valueOf(arr[1])));
+        }
+/*
         pieChart.getData().add(slice1);
         pieChart.getData().add(slice2);
         pieChart.getData().add(slice3);
         pieChart.getData().add(slice4);
         pieChart.getData().add(slice5);
-
+        pieChart.getData().add(slice6);
+        pieChart.getData().add(slice7);
+*/
         pieChart.setPrefSize(1200, 600);
 
         pieChart.setLegendSide(Side.LEFT);
@@ -77,7 +96,6 @@ public class Main extends Application {
                                     pieChart3.getData().add(date2[i]);
                                 }
 
-
                                 root.getChildren().removeAll(pieChart2);
                                 root.getChildren().addAll(pieChart3);
 
@@ -89,12 +107,14 @@ public class Main extends Application {
             });
         }
 
-
+        pieChart.setMinWidth(500);
+        pieChart.setLabelsVisible(false);
+        pieChart.setMinHeight(500);
         root.getChildren().addAll(pieChart, caption);
 
 
 
-        Scene scene = new Scene(root, 400, 300);
+        Scene scene = new Scene(root, 1200, 600);
 
         primaryStage.setScene(scene);
 

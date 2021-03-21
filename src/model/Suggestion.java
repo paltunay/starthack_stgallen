@@ -6,7 +6,7 @@ public class Suggestion implements Comparable<Suggestion>, java.io.Serializable 
     private int descriptionLength;
     private String name;
     private String description;
-    private String issuerName;
+    private final String issuerName;
 
     public Suggestion(String name, String description, String issuerName) {
         this.name = name;

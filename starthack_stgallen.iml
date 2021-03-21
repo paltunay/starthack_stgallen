@@ -21,6 +21,6 @@
     <orderEntry type="library" exported="" scope="PROVIDED" name="Maven: com.konghq:unirest-java:4.0.0-RC1" level="project" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="Maven: com.google.code.gson:gson:2.8.6" level="project" />
     <orderEntry type="library" exported="" name="lib" level="application" />
-    <orderEntry type="library" name="org.openjfx:javafx-base:15.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Maven: org.openjfx:javafx-base:15.0.1" level="project" />
   </component>
 </module>
