@@ -11,9 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 import java.util.Scanner;
 
 public class Main extends Application {
@@ -22,15 +20,6 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         PieChart pieChart = new PieChart();
-/*
-        PieChart.Data slice1 = new PieChart.Data("Advice center for parents of small children", 33.000);
-        PieChart.Data slice2 = new PieChart.Data("Advice for mothers", 1000000);
-        PieChart.Data slice3 = new PieChart.Data("Aids aid St. Gallen-Appenzell", 10000);
-        PieChart.Data slice4 = new PieChart.Data("Child and Adolescent Psychiatric Services Foundation St. Gallen", 85000);
-        PieChart.Data slice5 = new PieChart.Data("Help and care at home", 2550000);
-        PieChart.Data slice6 = new PieChart.Data("St. Gallen Hospice Service", 35000);
-        PieChart.Data slice7 = new PieChart.Data("Community palliative care", 59000);
-*/
         File file = new File("chartdata");
         BufferedReader reader = new BufferedReader(new FileReader(file));
         String line;
@@ -39,16 +28,9 @@ public class Main extends Application {
         while((line = reader.readLine()) != null) {
             String[] arr = line.split(";");
             pieChart.getData().add(new PieChart.Data(arr[0], Integer.valueOf(arr[1])));
+
         }
-/*
-        pieChart.getData().add(slice1);
-        pieChart.getData().add(slice2);
-        pieChart.getData().add(slice3);
-        pieChart.getData().add(slice4);
-        pieChart.getData().add(slice5);
-        pieChart.getData().add(slice6);
-        pieChart.getData().add(slice7);
-*/
+
         pieChart.setPrefSize(1200, 600);
 
         pieChart.setLegendSide(Side.LEFT);
@@ -56,30 +38,51 @@ public class Main extends Application {
 
         final Label caption = new Label("");
         caption.setTextFill(Color.WHITE);
-        caption.setStyle("-fx-font: 12 arial;");
+        caption.setStyle("-fx-font: 24 arial;");
 
         primaryStage.setTitle("Dashboard");
         AnchorPane root = new AnchorPane();
 
         for (final PieChart.Data data : pieChart.getData()) {
+            data.getNode().addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    caption.setTranslateX(event.getSceneX());
+                    caption.setTranslateY(event.getSceneY());
+
+                    caption.setText(String.valueOf(data.getPieValue()));
+                }
+            });
             data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent e) {
-                    /*
-                    caption.setTranslateX(e.getSceneX());
-                    caption.setTranslateY(e.getSceneY());
-                    for(int j = 0; j < pieChart.getData().size(); j++) {
-                        pieChart.getData().remove(j);
 
-                    }
 
-                    caption.setText(String.valueOf(data.getPieValue()));*/
                     PieChart pieChart2 = new PieChart();
-                    PieChart.Data[] date = {new PieChart.Data("Test1", 2), new PieChart.Data("Test2", 2), new PieChart.Data("Test3", 2), new PieChart.Data("Test4", 2)};
+                    pieChart2.setMinWidth(500);
+                    pieChart2.setLabelsVisible(false);
+                    pieChart2.setMinHeight(500);
 
-                    for (int i = 0; i< date.length; i++) {
-                        pieChart2.getData().add(date[i]);
+                    File file = new File("layer1");
+                    BufferedReader reader = null;
+                    try {
+                        reader = new BufferedReader(new FileReader(file));
+                    } catch (FileNotFoundException fileNotFoundException) {
+                        fileNotFoundException.printStackTrace();
                     }
+                    String line = null;
+
+
+                    while(true) {
+                        try {
+                            if (!((line = reader.readLine()) != null)) break;
+                        } catch (IOException ioException) {
+                            ioException.printStackTrace();
+                        }
+                        String[] arr = line.split(";");
+                        pieChart2.getData().add(new PieChart.Data(arr[0], Integer.valueOf(arr[1])));
+                    }
+
 
 
                     root.getChildren().removeAll(pieChart);
@@ -90,10 +93,28 @@ public class Main extends Application {
                             public void handle(MouseEvent e) {
 
                                 PieChart pieChart3 = new PieChart();
-                                PieChart.Data[] date2 = {new PieChart.Data("Test22222", 2), new PieChart.Data("Test2", 2), new PieChart.Data("Test3", 2), new PieChart.Data("Test4", 2)};
 
-                                for (int i = 0; i< date2.length; i++) {
-                                    pieChart3.getData().add(date2[i]);
+                                pieChart3.setMinWidth(500);
+                                pieChart3.setLabelsVisible(false);
+                                pieChart3.setMinHeight(500);
+
+                                File file = new File("layer2");
+                                BufferedReader reader = null;
+                                try {
+                                    reader = new BufferedReader(new FileReader(file));
+                                } catch (FileNotFoundException fileNotFoundException) {
+                                    fileNotFoundException.printStackTrace();
+                                }
+                                String line = null;
+
+                                while(true) {
+                                    try {
+                                        if (!((line = reader.readLine()) != null)) break;
+                                    } catch (IOException ioException) {
+                                        ioException.printStackTrace();
+                                    }
+                                    String[] arr = line.split(";");
+                                    pieChart3.getData().add(new PieChart.Data(arr[0], Integer.valueOf(arr[1])));
                                 }
 
                                 root.getChildren().removeAll(pieChart2);

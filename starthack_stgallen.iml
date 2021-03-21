@@ -18,9 +18,22 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" exported="" scope="PROVIDED" name="Maven: com.konghq:unirest-java:4.0.0-RC1" level="project" />
-    <orderEntry type="library" exported="" scope="PROVIDED" name="Maven: com.google.code.gson:gson:2.8.6" level="project" />
     <orderEntry type="library" exported="" name="lib" level="application" />
-    <orderEntry type="library" exported="" name="Maven: org.openjfx:javafx-base:15.0.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.konghq:unirest-java:4.0.0-RC1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.code.gson:gson:2.8.6" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:11.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:mac:11.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:11.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:mac:11.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:11.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:mac:11.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:11.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:mac:11.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-web:11.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-web:mac:11.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-media:11.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-media:mac:11.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-swing:11.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-swing:mac:11.0.2" level="project" />
   </component>
 </module>
