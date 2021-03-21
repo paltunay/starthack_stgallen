@@ -20,7 +20,6 @@ public class FileHandler {
             ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
 
             objOut.writeObject(data);
-            //objOut.flush();
             objOut.close();
             fileOut.close();
         } catch (Exception e) {
